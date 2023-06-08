@@ -1,7 +1,7 @@
 resource "aws_amplify_app" "cypress-project3" {
   name         = var.amplify-name
   repository   = var.amplify-repo
-  access_token = "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"
+  access_token = data.aws_ssm_parameter.github_token.value
 
   build_spec                  = file("./buildspec.yaml")
   enable_auto_branch_creation = true
@@ -32,6 +32,11 @@ resource "aws_amplify_branch" "main" {
 
   stage = "PRODUCTION"
 }
+
+data "aws_ssm_parameter" "github_token" {
+  name = "/ap_github"
+}
+
 
 output "Run_build" {
   value = "To start the build please run 'aws amplify start-job --app-id ${aws_amplify_branch.main.app_id} --branch-name ${aws_amplify_branch.main.branch_name} --job-type RELEASE'"
