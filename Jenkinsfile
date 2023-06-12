@@ -9,7 +9,8 @@ pipeline {
 
     stage('terraform install') {
       steps {
-        sh ' apt-get update && apt-get install -y gnupg software-properties-common'
+        sh 'sudo  apt-get update '
+        sh 'sudo apt-get install -y gnupg software-properties-common'
         sh '''wget -O- https://apt.releases.hashicorp.com/gpg | \\
 gpg --dearmor | \\
 sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
