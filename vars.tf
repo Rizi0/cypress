@@ -25,7 +25,7 @@ variable "lambda_function_name" {
 ##VPC Variables
 variable "amplify-name" {
   type        = string
-  default     = "cypress-project3"
+  default     = "ap-test"
   description = "The name of the app"
 
 }
