@@ -37,10 +37,3 @@ variable "amplify-repo" {
   description = "Repo amplify pulls from"
 }
 
-
-
-# variable "github_token" {
-#   type    = string
-#   default = null
-#   # sensitive = true
-# }
